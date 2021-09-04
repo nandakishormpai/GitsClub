@@ -8,7 +8,7 @@ def index(request):
     return render(request, 'index.html')
 
 def groups(request):
-    return HttpResponse("Here Groups")
+    return render(request, 'groups.html')
 
 def group(request,id):
     return HttpResponse("Each group Here  " + str(id))
