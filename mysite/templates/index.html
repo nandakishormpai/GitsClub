@@ -52,8 +52,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="groups/">Groups</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'groups' %}">Groups</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -72,7 +72,7 @@
             <h1> Open Source and grow with analysis using <span>GitsClub</span></h1>
             <h2>Platform for your group to analyse and gamify your Open Source journey with rankings and much more.</h2>
             <div class="text-center text-lg-start">
-              <a href="#about" class="btn-get-started scrollto">Get Started</a>
+              <a href="groups/" class="btn-get-started scrollto">Get Started</a>
             </div>
           </div>
         </div>
