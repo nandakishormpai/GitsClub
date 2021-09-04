@@ -79,10 +79,11 @@
             <h2>Welcome</h2>
             <p>Join Now</p>
           </div>
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form action='' method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Github Username" required>
+                <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Github Username" required> -->
+                {{form.UserId}}
               </div>
               <div class="col-md-6 form-group mt-3 mt-md-0">
                 <button type="submit" class="join_db">Join!</button>
