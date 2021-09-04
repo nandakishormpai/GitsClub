@@ -140,11 +140,27 @@
                   </p>
                 </div>
               </li>
-  
+              {% for user in users %}
+              <tr class="row m-0">
+                <th class="d-inline-block col-4">
+                  <h6>{{user.name}}</h6>
+                </th>
+                <th class="d-inline-block col-4">
+                  <h6>{{ user.bio }}</h6>
+                </th>
+                <th class="d-inline-block col-4">
+                  <h6>{{user.starCount }}</h6>
+                </th>
+
+              </tr>
+              {% endfor %}
             </ul>
           </div>
       </div>
+      <button href='{% url "new" %}'>Add</button>
     </section><!-- End About Section 
+
+      
 
     
   <!-- ======= Footer ======= -->
