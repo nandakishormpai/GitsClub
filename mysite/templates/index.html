@@ -41,6 +41,13 @@
 <body>
 
   <!-- ======= Header ======= -->
+  {% if messages %}
+    {% for messages in messages %}
+      <div class="alert alert={{message.tags}}">
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
 

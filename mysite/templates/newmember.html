@@ -38,7 +38,13 @@
 </head>
 
 <body>
-
+  {% if messages %}
+    {% for messages in messages %}
+      <div class="alert alert={{message.tags}}">
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
@@ -79,17 +85,20 @@
             <h2>Welcome</h2>
             <p>Join Now</p>
           </div>
-        <form action='' method="post" role="form" class="php-email-form">
+        <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
             <div class="row">
               <div class="col-md-6 form-group">
                 <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Github Username" required> -->
-                {{form.UserId}}
+                {{form}}
               </div>
               <div class="col-md-6 form-group mt-3 mt-md-0">
                 <button type="submit" class="join_db">Join!</button>
               </div>
             </div>
           </form>
+        </div>
     </div>
         
     </section><!-- End About Section 

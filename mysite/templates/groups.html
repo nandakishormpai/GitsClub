@@ -40,6 +40,13 @@
 <body>
 
   <!-- ======= Header ======= -->
+  {% if messages %}
+    {% for messages in messages %}
+      <div class="alert alert={{message.tags}}">
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -166,7 +173,11 @@
           </div>
       </div>
       <div class="text-center text-lg-start">
-        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form">Join Now!</a>
+        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form joinorrefresh">Join Now!</a>
+        <form action="{% url 'groups' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" class="btn-get-started scrollto join_form joinorrefresh" value="Refresh" name="refreshbtn">
+        </form>
       </div>
     </section><!-- End About Section 
 
