@@ -65,6 +65,7 @@ def newmember(request):
                 starCount=userData[userId]["starCount"],
                 repoCount=userData[userId]["repoCount"],
                 followerCount=userData[userId]["followerCount"],
+                contributionCount=userData[userId]["publicActivityDailyIncrement"]
             )
         messages.success(request, f'Success for {userId}!')
         return redirect('groups')
