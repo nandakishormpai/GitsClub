@@ -41,7 +41,8 @@ def getFollowerCount(_users):
 def getUserEvents(_users):
     user_activity = {}
     for user in _users:
-        response = requests.get(f"https://api.github.com/users/{user}/events/public")
+        response = requests.get(
+            f"https://api.github.com/users/{user}/events/public")
         events = response.json()
         currentDate = date.today()
         for event in events:
@@ -55,7 +56,6 @@ def getUserInfo(_users):
             f"https://api.github.com/users/{user}",
         )
         _userInfoResponse = response.json()
-
         groupUserInfo[user] = {}
         groupUserInfo[user]["name"] = _userInfoResponse["name"]
         groupUserInfo[user]["profileURL"] = _userInfoResponse["html_url"]

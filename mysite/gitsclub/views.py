@@ -56,16 +56,16 @@ def newmember(request):
         #             name="HariU", bio="CETIAN", starCount=2, repoCount=26, followerCount=4)
         # User.objects.create(userId=userId, profilePic="https://avatars.githubusercontent.com/u/53964426?v=4",
         #                     name="HariU", bio="CETIAN", starCount=2, repoCount=26, followerCount=4)
-        userData = getUserInfo(userId)
+        userData = getUserInfo([userId])
         User.objects.create(
-                userId=userId,
-                profilePic=userData[userId]["profileURL"],
-                name=userData[userId]["name"],
-                bio=userData[userId]["bio"],
-                starCount=userData[userId]["starCount"],
-                repoCount=userData[userId]["repoCount"],
-                followerCount=userData[userId]["followerCount"],
-            )
+            userId=userId,
+            profilePic=userData[userId]["profileURL"],
+            name=userData[userId]["name"],
+            bio=userData[userId]["bio"],
+            starCount=userData[userId]["starCount"],
+            repoCount=userData[userId]["repoCount"],
+            followerCount=userData[userId]["followerCount"],
+        )
         messages.success(request, f'Success for {userId}!')
         return redirect('groups')
     else:
