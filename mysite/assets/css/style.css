@@ -1690,3 +1690,9 @@ section {
     margin: -20px 0 30px 0;
   }
 }
+
+@media (min-width: 700px) {
+  .joinorrefresh {
+    float: right;
+  }
+}
