@@ -67,20 +67,6 @@
     <div class="container">
     </div>
 
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-      </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-      </g>
-    </svg>
 
   </section><!-- End Hero -->
 
@@ -90,84 +76,22 @@
     <section id="faq" class="faq section-bg">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <h2>G.C</h2>
-            <p>Groups</p>
+            <h2>Welcome</h2>
+            <p>Join Now</p>
           </div>
-          <!--
-          <div class="faq-list">
-            <ul>
-              <li data-aos="fade-up">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Group 1 <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                  <p>
-                    Group 1 caption and details
-                  </p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Group 2<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Group 2 caption and details
-                  </p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="200">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Group 3<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Group 3 captiona nd details
-                  </p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="300">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Group 4<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Group 4 caption and details
-                  </p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="400">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Group 5<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Group 5 caption and details
-                  </p>
-                </div>
-              </li>
-              -->
-              <table>
-                  <tr>
-                    <th>Name</th>
-                    <th>UserName</th>
-                    <th>Bio</th>
-                    <th>Repos</th>
-                    <th>Stars</th>
-                    <th>Followers</th>
-                  </tr>
-                  {% for user in users %}
-              <tr>
-                  <td>{{user.name}}</td>
-                  <td>{{user.userId }}</td>
-                  <td>{{user.bio }}</td>
-                  <td>{{user.repoCount}}</td>
-                  <td>{{user.starCount }}</td>
-                  <td>{{user.followerCount }}</td>
-              </tr>
-              {% endfor %}
-              </table>
-              <br>
-            </ul>
-          </div>
-      </div>
-      <div class="text-center text-lg-start">
-        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form">Join Now!</a>
-      </div>
+        <form action='' method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Github Username" required> -->
+                {{form.UserId}}
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <button type="submit" class="join_db">Join!</button>
+              </div>
+            </div>
+          </form>
+    </div>
+        
     </section><!-- End About Section 
 
       
