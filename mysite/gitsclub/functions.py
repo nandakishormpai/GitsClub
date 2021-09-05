@@ -68,7 +68,6 @@ def getUserInfo(_users):
             f"https://api.github.com/users/{user}", headers={"Authorization":"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"}
         )
         _userInfoResponse = response.json()
-
         groupUserInfo[user] = {}
         groupUserInfo[user]["name"] = _userInfoResponse["name"]
         groupUserInfo[user]["profileURL"] = _userInfoResponse["html_url"]
