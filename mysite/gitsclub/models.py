@@ -11,6 +11,6 @@ class User(models.Model):
     repoCount = models.IntegerField()
     followerCount = models.IntegerField()
     contributionCount = models.IntegerField(default=0)
-
+    
     def __str__(self):
         return self.userId
