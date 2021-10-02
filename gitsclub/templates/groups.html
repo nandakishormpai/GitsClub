@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Groups</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href='{% static "img/favicon.png"%}' rel="icon">
+  <link href='{% static "img/apple-touch-icon.png" %}' rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "vendor/aos/aos.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/boxicons/css/boxicons.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/glightbox/css/glightbox.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/remixicon/remixicon.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/swiper/swiper-bundle.min.css" %}' rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href='{% static "css/style.css" %}' rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="{% url 'index' %}"><span>GitsClub</span></a></h1>
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{% url 'index' %}">Home</a></li>
+          <li><a class="nav-link scrollto  active" href="{% url 'groups' %}">Groups</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'newmember' %}" >Join</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="{% url 'creategroup' %}" >Create</a></li>
+          {% else %}
+          <li><a class="nav-link scrollto" href="{% url 'register' %}" >Create</a></li>
+          {% endif %}
+          <li><a class="nav-link scrollto" href="{% url 'about' %}" >About</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="{% url 'logout' %}" >Logout</a></li>
+          {% else %}
+            <li><a class="nav-link scrollto" href="{% url 'login' %}" >Login</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'register' %}" >Register</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Groups Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Groups</h2>
+            {% if messages %}
+              {% for message in messages %}
+                {{ message }}
+              {% endfor %}
+            {% endif %}
+          
+          <div class="faq-list">
+            <ul>
+
+              {% for key, value in group_dict.items %}
+                <li data-aos="fade-up table_div">
+                  <a data-bs-toggle="collapse" class="collapse collapsed" data-bs-target="#faq-list{{key}}" aria-expanded="false">
+                    <p>{{key}}</p><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="faq-list{{key}}" class="collapse" data-bs-parent=".faq-list{{key}}" aria-expanded="false" >
+                  <table id="table_id{{key}}" class="display">
+                  <caption><a href="{% url 'newmember' %}">Join Now</a> if you are not in the team</caption>
+                  <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>UserName</th>
+                      <th>Bio</th>
+                      <th>Repos</th>
+                      <th>Stars</th>
+                      <th>Followers</th>
+                    </tr>
+                  </thead> 
+                  <tbody>
+                    {% for user in value %}
+                      <tr>
+                        <td>{{user.name}}</td>
+                        <td>{{user.userId }}</td>
+                        <td>{{user.bio }}</td>
+                        <td>{{user.repoCount}}</td>
+                        <td>{{user.starCount }}</td>
+                        <td>{{user.followerCount }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <br>
+                <br>
+                  </div>
+                </li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+            
+            </div>
+          </div>
+      </div>
+      <div class="text-center text-lg-start bottom-buttons">
+        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form joinorrefresh">Join Now!</a>
+        <a href="{% url 'creategroup' %}" class="btn-get-started scrollto join_form joinorrefresh">Create Group!</a>
+        <form action="{% url 'groups' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" class="btn-get-started scrollto join_form joinorrefresh" value="Refresh" name="refreshbtn">
+        </form>
+        
+      </div>
+    </section><!-- End About Section 
+
+      
+
+    
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span><a href="https://github.com/nandakishormpai/Github_API_Epic_SHN" target="_blank">GitsClub</a></span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "vendor/aos/aos.js" %}'></script>
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "vendor/glightbox/js/glightbox.min.js" %}'></script>
+  <script src='{% static "vendor/php-email-form/validate.js" %}' ></script>
+  <script src='{% static "vendor/purecounter/purecounter.js" %}'></script>
+  <script src='{% static "vendor/swiper/swiper-bundle.min.js" %}'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.1/af-2.3.7/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/b-print-2.0.0/cr-1.5.4/fc-3.3.3/kt-2.6.4/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.5/sl-1.3.3/datatables.min.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.1/af-2.3.7/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/b-print-2.0.0/cr-1.5.4/fc-3.3.3/kt-2.6.4/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.5/sl-1.3.3/datatables.min.js"></script>
+<script>
+    {% for key, value in group_dict.items %}
+      $(document).ready( function () {
+      $('#table_id{{key}}').DataTable({
+
+      dom: 'B<"clear">lfrtip',
+      buttons: {
+          name: 'primary',
+          buttons: [ 'copy', 'csv', 'excel', 'pdf' ]
+
+          }}
+      );
+  } );
+  {% endfor %}
+</script>
+  <!-- Template Main JS File -->
+  <script src='{% static "js/main.js" %}'></script>
+</body>
+
+</html>

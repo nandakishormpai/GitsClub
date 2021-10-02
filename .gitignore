@@ -2,3 +2,5 @@
 gitsclub/__pycache__
 mysite/__pycache__
 gitsclub/migrations/__pycache__
+env/
+gitsenv/

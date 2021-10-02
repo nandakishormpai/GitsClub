@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>About</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href='{% static "img/favicon.png"%}' rel="icon">
+  <link href='{% static "img/apple-touch-icon.png" %}' rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "vendor/aos/aos.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/boxicons/css/boxicons.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/glightbox/css/glightbox.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/remixicon/remixicon.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/swiper/swiper-bundle.min.css" %}' rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href='{% static "css/style.css" %}' rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="{% url 'index' %}"><span>GitsClub</span></a></h1>
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{% url 'index' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'groups' %}">Groups</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'newmember' %}" >Join</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="{% url 'creategroup' %}" >Create</a></li>
+          {% else %}
+          <li><a class="nav-link scrollto" href="{% url 'register' %}" >Create</a></li>
+          {% endif %}
+          <li><a class="nav-link scrollto active" href="{% url 'about' %}" >About</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="{% url 'logout' %}" >Logout</a></li>
+          {% else %}
+            <li><a class="nav-link scrollto" href="{% url 'login' %}" >Login</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'register' %}" >Register</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Groups Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Meet the</h2>
+            <p>Devs</p>
+            
+            </div>
+          </div>
+      </div>
+      <section id="counts" class="devs">
+        <div class="container">
+  
+          <div class="row" data-aos="fade-up">
+  
+            <div class="dev-box">
+                <div class="count-box">
+                    <img src="https://avatars.githubusercontent.com/u/57388834?v=4" class="dev_pic">
+                    <span class="dev_name"> Nanda Kishor M Pai </span>
+                    <p class="dev_nick_name">nandakishormpai</p>
+                  </div>
+            </div>
+  
+            <div class="dev-box">
+                <div class="count-box">
+                    <img src="https://avatars.githubusercontent.com/u/57054372?v=4" class="dev_pic">
+                    <span class="dev_name"> Antony S John </span>
+                    <p class="dev_nick_name">AntonySJohn</p>
+                  </div>
+            </div>
+  
+            <div class="dev-box">
+              <div class="count-box">
+                <img src="https://avatars.githubusercontent.com/u/53964426?v=4" class="dev_pic">
+                <span class="dev_name"> Hari Krishnan U </span>
+                <p class="dev_nick_name">Harikrishnan6336</p>
+              </div>
+            </div>
+  
+  
+          </div>
+  
+        </div>
+      </section><!-- End Counts Section -->
+    </section><!-- End About Section -->
+
+      
+
+    
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span><a href="https://github.com/nandakishormpai/Github_API_Epic_SHN" target="_blank">GitsClub</a></span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "vendor/aos/aos.js" %}'></script>
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "vendor/glightbox/js/glightbox.min.js" %}'></script>
+  <script src='{% static "vendor/php-email-form/validate.js" %}' ></script>
+  <script src='{% static "vendor/purecounter/purecounter.js" %}'></script>
+  <script src='{% static "vendor/swiper/swiper-bundle.min.js" %}'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.1/af-2.3.7/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/b-print-2.0.0/cr-1.5.4/fc-3.3.3/kt-2.6.4/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.5/sl-1.3.3/datatables.min.css"/>
+</script>
+  <!-- Template Main JS File -->
+  <script src='{% static "js/main.js" %}'></script>
+</body>
+
+</html>
