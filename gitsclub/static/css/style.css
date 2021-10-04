@@ -613,6 +613,7 @@ section {
 
 .section-bg {
   background-color: #f5f5ff;
+  min-height: 70vh;
 }
 
 .section-title {
@@ -854,6 +855,11 @@ section {
   -webkit-animation: none;
   animation: none;
   border-radius: 0;
+}
+
+.avatar {
+  width: 18rem;
+  box-shadow: 2px 2px 4px 3px rgba(0, 0, 255, 0.2);
 }
 
 @-webkit-keyframes pulsate-btn {
