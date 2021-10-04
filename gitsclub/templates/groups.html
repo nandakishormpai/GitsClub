@@ -1,10 +1,12 @@
-{% extends 'base.html%}
+{% extends 'base.html' %}
 {% load static %}
 
 
 {% block head%}  <title>Groups</title>{% endblock %}
 
 
+
+{% block content %}
   <!-- ======= Hero Section ======= -->
   <section id="hero">
 
@@ -99,10 +101,9 @@
 
       
 
-    
-<script>
+    <script>    
     {% for key, value in group_dict.items %}
-      $(document).ready( function () {
+    $(document).ready( function () {
       $('#table_id{{key}}').DataTable({
 
       dom: 'B<"clear">lfrtip',
@@ -115,5 +116,6 @@
   } );
   {% endfor %}
 </script>
+
 
 {% endblock %}
