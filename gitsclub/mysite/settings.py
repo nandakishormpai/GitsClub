@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-*i8w7kw5)!oqc!f3&ossxb@d2a=1w6y3nv57p0_9i@%!m063r-
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost', 'https://gitsclub.herokuapp.com/', '127.0.0.1']
+    'localhost', 'https://gitsclub.herokuapp.com/', '*']
 
 AUTH_USER_MODEL = "gitsclub.Member"
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.RemoteUserBackend',
