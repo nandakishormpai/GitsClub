@@ -145,18 +145,20 @@
             </ul>
           </div>
             
-            </div>
-          </div>
-      </div>
-      <div class="text-center text-lg-start bottom-buttons">
-        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form joinorrefresh">Join Now!</a>
-        <a href="{% url 'creategroup' %}" class="btn-get-started scrollto join_form joinorrefresh">Create Group!</a>
+           
+      <div class="text-center text-md-start bottom-buttons">
+        <a href="{% url 'newmember' %}" class="btn-get-started scrollto join_form joinorrefresh mx-4">Join Now!</a>
+        <a href="{% url 'creategroup' %}" class="btn-get-started scrollto join_form joinorrefresh ml-5">Create Group!</a>
         <form action="{% url 'groups' %}" method="POST">
           {% csrf_token %}
-          <input type="submit" class="btn-get-started scrollto join_form joinorrefresh" value="Refresh" name="refreshbtn">
+          
+          <button type="submit" class="btn-get-started scrollto join_form joinorrefresh" name="refreshbtn"><i class="bi bi-arrow-clockwise"></i></button>
         </form>
         
       </div>
+    </div>
+  </div>
+</div>
     </section><!-- End About Section 
 
       

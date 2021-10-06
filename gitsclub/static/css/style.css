@@ -1695,14 +1695,15 @@ section {
 
 .join_db,
 .join_form {
-  background-color: #e5f0e5; /* Green */
-  border: 2px solid #3a3535;
-  color: rgb(0, 0, 0);
-  padding: 20px;
+  font-weight: 400;
+  background-color: #b1ccff91; /* Green */
+  border: 2px solid #010479;
+  color:#010479;
+  padding: 0px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  /* margin: 2px 4px; */
   cursor: pointer;
   border-radius: 8px;
   padding-top: 8px;
@@ -1710,9 +1711,9 @@ section {
   margin-top: 0px;
 }
 
-.join_form {
+/* .join_form {
   margin-left: 10%;
-}
+} */
 
 table {
   border-collapse: collapse;
