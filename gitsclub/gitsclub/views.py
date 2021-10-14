@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 from .models import User
 from .forms import GroupJoinForm, GroupCreateForm, UserRegisterForm
 from .functions import getUserInfo
@@ -83,6 +84,7 @@ def newmember(request):
     return render(request, 'newmember.html', {'form': form, 'group_count': group_count, 'repo_count': repo_count['repoCount__sum'], 'star_count': star_count['starCount__sum'], 'user_count': user_count})
 
 
+@login_required
 def creategroup(request):
     form = GroupCreateForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():

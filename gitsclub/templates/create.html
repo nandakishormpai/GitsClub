@@ -43,14 +43,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'index' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'groups' %}">Groups</a></li>
           <li><a class="nav-link scrollto" href="{% url 'newmember' %}" >Join</a></li>
-          {% if user.is_authenticated %}
-          <li><a class="nav-link scrollto" href="{% url 'creategroup' %}" >Create</a></li>
-          {% else %}
-          <li><a class="nav-link scrollto" href="{% url 'register' %}" >Create</a></li>
-          {% endif %}
+          <li><a class="nav-link scrollto active" href="{% url 'creategroup' %}" >Create</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}" >About</a></li>
           {% if user.is_authenticated %}
           <li><a class="nav-link scrollto" href="{% url 'logout' %}" >Logout</a></li>
